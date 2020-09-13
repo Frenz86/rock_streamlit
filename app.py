@@ -8,11 +8,10 @@ import numpy as np
 import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps
-from tensorflow.keras.models import load_model
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-model = load_model('model.h5')
+model = tf.keras.models.load_model('model.h5')
 
 def import_and_predict(image_data, model):
         size = (150,150)    
