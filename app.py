@@ -1,18 +1,21 @@
-# -*- coding: utf-8 -*-
 """
 Created on Fri Jun 26 00:40:50 2020
 
-@author: ASUS
+@author: Frenz
 """
 
 import numpy as np
 import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps
+from tensorflow.keras.models import load_model
+
+st.set_option('deprecation.showfileUploaderEncoding', False)
+
+model = load_model('model.h5')
 
 def import_and_predict(image_data, model):
-    
-        size = (75,75)    
+        size = (150,150)    
         image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
         image = image.convert('RGB')
         image = np.asarray(image)
@@ -21,10 +24,8 @@ def import_and_predict(image_data, model):
         img_reshape = image[np.newaxis,...]
 
         prediction = model.predict(img_reshape)
-        
         return prediction
 
-model = tf.keras.models.load_model('my_model.hdf5')
 
 st.write("""
          # Rock-Paper-Scissor Hand Sign Prediction
