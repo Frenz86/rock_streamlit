@@ -9,7 +9,7 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps
 
-st.set_option('deprecation.showfileUploaderEncoding', False)
+#st.set_option('deprecation.showfileUploaderEncoding', False)
 
 model = tf.keras.models.load_model('model.h5')
 
